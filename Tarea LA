@@ -1,0 +1,19 @@
+function encontrarIndiceDelMenor(A) {
+    let menor = A[0];
+    let indice_menor = 0;
+
+    for (let i = 1; i < A.length; i++) {
+        if (A[i] < menor) {
+            menor = A[i];
+            indice_menor = i;
+        }
+    }
+
+    return indice_menor;
+}
+
+// Ejemplo de aplicacion 
+
+const A = [51, 23, 92, 10, 7, 23, 44, 55];
+const indiceM = encontrarIndiceDelMenor(A);
+console.log(`El i­ndice del menor elemento es: ${indiceM}`);
