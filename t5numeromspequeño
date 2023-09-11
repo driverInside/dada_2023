@@ -1,0 +1,15 @@
+const message = 'Welcome Friends' // Try edit me
+
+function t5 (){
+    let encontar = null;
+
+    const a= [5,2,5,8,-3,8,3,1,-8] 
+
+    for (let i= 0; i< a.length; i++) {
+        if (encontar === null || a[i] <encontar){
+            encontar= a [i];
+        }
+    }
+    console.log("el numero menor es : " + encontar);
+}
+ t5()
