@@ -51,3 +51,31 @@
  *    return BinarySearch(A[n/2 .. n - 1], ele)
  * 
  */
+function binarySearch(arr, ele) {
+  if (arr.length === 0) {
+    return -1;
+  }
+  
+  const mid = Math.floor(arr.length / 2);
+
+  if (arr[mid] === ele) {
+    return arr[mid];
+  }
+
+  if (ele > arr[mid]) {
+    return binarySearch(arr.slice(0, mid), ele);
+  } else {
+    return binarySearch(arr.slice(mid, arr.length), ele);
+  }
+}
+
+const arr = [2, 4, 6, 7, 9, 11, 19];
+let ele = 7;
+// const mid = Math.floor(arr.length / 2);
+// console.log(arr.slice(mid, arr.length));
+
+console.log(binarySearch(arr, ele)); // 7
+
+ele = 8;
+
+console.log(binarySearch(arr, ele)); // -1

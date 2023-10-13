@@ -2,16 +2,16 @@
  * Dados dos arreglos ordenados A, B; producir un nuevo arreglo C ordenado ascendentemente uniendo A y B 
  * 
  * A = [1, 5, 7, 9, 11, 12]       N = 5
- *               i
+ *      i
  * B = [3, 4, 9, 10]          M = 4
- *                j
- * C = [1, 3,  ]
- *            k
+ *      j
+ * C = [1, 3, 4, 5, 7, 9, 9, 10]
+ *      k
  *
  *  Comparar los dos elementos más pequeños.
  *  El más pequeño, lo voy a sacar de su arreglo para ingresarlo al nuevo
  *       
- *       [1, 3, 4, 5, 7, 9, 9, 10, 11]
+ *       [1, 3, 4, 5, 7, 9, 9, 10, 11, 12]
  * 
  * Merge(A, B)
  * // input: dos arreglos A y B ordenados
@@ -24,7 +24,7 @@ function merge(arrayA, arrayB) {
   let k = 0;
   const result = [];
 
-  while (result.length < arrayA.length + arrayB.length) {
+  while (i < arrayA.length && j < arrayB.length) {
     if (arrayA[i] <= arrayB[j]) {
       result[k] = arrayA[i];
 
@@ -38,6 +38,14 @@ function merge(arrayA, arrayB) {
         j++;
       }
     }
+    k++;
+  }
+
+  let aux = arrayA[i++] || arrayB[j++]
+
+  while (aux !== undefined) {
+    result[k] = aux;
+    aux = arrayA[i++] || arrayB[j++];
     k++;
   }
 
